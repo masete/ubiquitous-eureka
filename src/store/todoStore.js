@@ -1,6 +1,7 @@
+// @ts-nocheck
 import { writable } from "svelte/store";
 
-export const todos = writable([]);
+  export const todos = writable([]);
 
 // @ts-ignore
 export const addTodo = (text) => {
@@ -14,12 +15,12 @@ export const addTodo = (text) => {
 // @ts-ignore
 export const deleteTodo = (id) => {
     // @ts-ignore
-    todos.update(todos=>todos.filter(todos => todos.id !== id))
+    todos.update((todos)=>todos.filter(todos => todos.id !== id))
 }
 
 export const toggleTodoCompleted = () =>{
     // @ts-ignore
-    todos.update(todos => {
+    todos.update((todos) => {
         let index = -1
         for(let i=0; i < todos.length; i++ ){
             // @ts-ignore
@@ -28,9 +29,10 @@ export const toggleTodoCompleted = () =>{
                 break
             }
         }
-        if(index !==){
+        if(index !== -1){
             todos[index].completed =!todos[index].completed;
         }
         return todos
     })
 }
+
